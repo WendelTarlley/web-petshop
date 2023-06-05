@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  Petshop Teste
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item routerLink="." (click)="sidenav.toggle()">Pagina inicial</a>
+      <a mat-list-item routerLink="iniciar-venda" (click)="sidenav.toggle()">Iniciar Venda</a>
+      <a mat-list-item routerLink="sobre" (click)="sidenav.toggle()">Sobre nós</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
