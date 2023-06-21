@@ -1,0 +1,63 @@
+<div [formGroup]="formNewEndereco" *ngIf="novoCliente">
+    <mat-form-field appearance="outline">
+      <mat-label>Cep</mat-label>
+      <input matInput formControlName="cep" (change)="buscarCep($event.target)" />
+      <mat-error>Cep inválido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo Logradouro</mat-label>
+      <input matInput formControlName="tipoLogradouro" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome Logradouro</mat-label>
+      <input matInput formControlName="nomeLogradouro" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Numero</mat-label>
+      <input matInput formControlName="numero" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Bairro</mat-label>
+      <input matInput formControlName="bairro" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Municiopio</mat-label>
+      <input matInput formControlName="municipio" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>UF</mat-label>
+      <input matInput formControlName="uf" />
+    </mat-form-field>
+</div>
+<div [formGroup]="formCliente" *ngIf="!novoCliente">
+  <div formGroupName="endereco">
+    <mat-form-field appearance="outline">
+      <mat-label>Cep</mat-label>
+      <input matInput formControlName="cep" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo Logradouro</mat-label>
+      <input matInput formControlName="tipoLogradouro" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome Logradouro</mat-label>
+      <input matInput formControlName="nomeLogradouro" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Numero</mat-label>
+      <input matInput formControlName="numero" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Bairro</mat-label>
+      <input matInput formControlName="bairro" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Municiopio</mat-label>
+      <input matInput formControlName="municipio" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>UF</mat-label>
+      <input matInput formControlName="uf" />
+    </mat-form-field>
+  </div>
+</div>

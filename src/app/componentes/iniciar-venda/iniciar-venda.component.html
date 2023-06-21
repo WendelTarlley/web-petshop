@@ -1,11 +1,9 @@
-<div class="informacoes-cliente">
-  <mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput type="text" [formControl]="searchControl" placeholder="Digite um termo">
-  </mat-form-field>
-</div>
+<section class="example-section">
+<mat-checkbox class="example-margin"[(ngModel)]="novoCliente" [checked]="novoCliente">Cliente novo?</mat-checkbox>
+</section>
+<form [formGroup]="formCliente">
+  <div class="form-group">
+    <app-cliente [formCliente]="formCliente" (editarCliente)="receberCliente($event)" [novoCliente]="novoCliente"></app-cliente>
+    <app-endereco [formCliente]="formCliente" (editarEndereco)="receberEndereco($event)" [novoCliente]="novoCliente"></app-endereco>
+  </div>
+</form>

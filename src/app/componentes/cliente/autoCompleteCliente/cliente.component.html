@@ -1,0 +1,9 @@
+
+<div class="informacoes-cliente" [formGroup]="formCliente">
+  <mat-form-field appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input matInput  placeholder="Buscar cliente"
+      formControlName="nome" [readonly]="!novoCliente">
+    <mat-icon matSuffix (click)="openDialog()" *ngIf="!novoCliente">search</mat-icon>
+  </mat-form-field>
+</div>

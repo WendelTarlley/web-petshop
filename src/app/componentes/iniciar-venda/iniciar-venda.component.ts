@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
-import { ClienteService } from 'src/app/services/cliente/cliente.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-iniciar-venda',
@@ -9,23 +7,39 @@ import { ClienteService } from 'src/app/services/cliente/cliente.service';
   styleUrls: ['./iniciar-venda.component.scss']
 })
 export class IniciarVendaComponent implements OnInit {
-  searchControl = new FormControl();
   results: string[] = [];
 
+  clientePreenchido:boolean = false;
+  novoCliente:boolean = false;
+  formCliente: FormGroup
+  constructor( private fb:FormBuilder){
 
+    this.formCliente = this.fb.group({
+      nome: new FormControl(),
+      telefone: new FormControl(),
+      endereco: new FormGroup({
+        cep: new FormControl(),
+        tipoLogradouro: new FormControl(),
+        nomeLogradouro: new FormControl(),
+        numero: new FormControl(),
+        bairro: new FormControl(),
+        municipio: new FormControl(),
+        uf: new FormControl()
+      })
+    })
+  }
+  
   ngOnInit() {
   }
 
 
-
-  constructor(private clienteService:ClienteService) {
-    this.searchControl.valueChanges.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(termo => this.clienteService.buscarCliente(termo))
-    ).subscribe((dados: any[]) => {
-      this.results = dados.map(dado => dado.nome);
-    });
+  receberCliente(cliente:any){
+    this.formCliente = cliente
+    this.clientePreenchido = true;
   }
-
+  receberEndereco(cliente:any){
+    console.log(
+      'get endereço',cliente
+    )
+  }
 }

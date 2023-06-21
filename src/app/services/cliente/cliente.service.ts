@@ -8,12 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class ClienteService {
 
-  private consultaClientes = 'http://localhost:8082/api-pedidos/clientes/';
+  private consultaClientes = 'http://localhost:8082/api-pedidos/clientes';
   
 
 constructor(private http: HttpClient) { }
 
   buscarCliente(nome:string): Observable<any>{
-    return this.http.get(this.consultaClientes+"busca-por-nome/"+nome)
+    return this.http.get(this.consultaClientes+"/busca-por-nome/"+nome)
+  }
+
+  buscarTodosClientes(): Observable<any>{
+    return this.http.get(this.consultaClientes)
   }
 }

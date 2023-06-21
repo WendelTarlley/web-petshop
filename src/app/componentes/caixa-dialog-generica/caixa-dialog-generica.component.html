@@ -1,0 +1,4 @@
+<ng-template #dialogContent></ng-template>
+    <ng-template #defaultTemplate let-data>
+      <ng-container *ngComponentOutlet="data.component; injector: data.injector"></ng-container>
+    </ng-template>

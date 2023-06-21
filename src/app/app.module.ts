@@ -17,6 +17,10 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 //Componentes proprios
 import { PaginaInicialComponent } from './componentes/pagina-inicial/pagina-inicial.component';
@@ -24,6 +28,12 @@ import { SobreComponent } from './componentes/sobre/sobre.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { IniciarVendaComponent } from './componentes/iniciar-venda/iniciar-venda.component';
 import { ClienteService } from './services/cliente/cliente.service';
+import { ClienteComponent } from './componentes/cliente/autoCompleteCliente/cliente.component';
+import { CaixaDialogGenericaComponent } from './componentes/caixa-dialog-generica/caixa-dialog-generica.component';
+import { CaixaDialogoGenericaService } from './services/caixa-dialogo-generica.service';
+import { TabelaExibicaoClientesComponent } from './componentes/cliente/tabela-exibicao-clientes/tabela-exibicao-clientes.component';
+import { EnderecoComponent } from './componentes/endereco/endereco.component';
+import { CepService } from './services/cep.service';
 
 @NgModule({
   declarations: [			
@@ -32,8 +42,12 @@ import { ClienteService } from './services/cliente/cliente.service';
       PaginaInicialComponent,
       SobreComponent,
       FooterComponent,
-      IniciarVendaComponent
-   ],
+      IniciarVendaComponent,
+      ClienteComponent,
+      CaixaDialogGenericaComponent,
+      TabelaExibicaoClientesComponent,
+      EnderecoComponent,
+     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,9 +62,18 @@ import { ClienteService } from './services/cliente/cliente.service';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
-  providers: [ClienteService],
+  providers: [
+    ClienteService,
+    CaixaDialogoGenericaService,
+    CepService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
